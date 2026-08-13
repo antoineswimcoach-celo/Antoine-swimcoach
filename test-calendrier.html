@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Antoine Natation — Cours particuliers à Évry</title>
+<style>
+:root{--navy:#08263d;--aqua:#20b7b2;--aqua2:#159490;--ice:#eef9f8;--ink:#193444;--muted:#6b7f8b;--line:#dce8ed;--white:#fff;--soft:0 14px 38px rgba(8,38,61,.08)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:130px}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.shell{width:min(920px,calc(100% - 28px));margin:auto}
+.topbar{background:var(--navy);color:#d8edf5;text-align:center;padding:8px 12px;font-size:.76rem}
+header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.navtop{height:68px;display:flex;align-items:center;gap:12px;padding:0 14px}
+.brandmark{width:44px;height:44px;border-radius:16px;background:linear-gradient(145deg,var(--navy),var(--aqua));position:relative;flex:0 0 44px}
+.brandmark:after{content:"";position:absolute;width:22px;height:8px;border:2px solid white;border-top:0;border-radius:0 0 50% 50%;left:10px;top:15px}
+.brand{font-size:1.12rem;font-weight:950;color:var(--navy)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:9px 14px 12px;border-top:1px solid var(--line);-webkit-overflow-scrolling:touch}
+.tabs a{flex:0 0 auto;border:1px solid var(--line);padding:9px 13px;border-radius:999px;font-weight:850;font-size:.79rem;background:#fff;color:var(--navy)}
+.hero{padding:42px 0;background:linear-gradient(180deg,#f7fcfd,#fff)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
+.eyebrow{display:inline-block;background:var(--ice);color:var(--aqua2);padding:7px 11px;border-radius:999px;font-weight:900;font-size:.72rem}
+h1,h2,h3,p{margin-top:0}
+h1{font-size:clamp(2.4rem,9vw,4.8rem);line-height:.98;letter-spacing:-.055em;color:var(--navy);margin:18px 0}
+h2{font-size:clamp(1.8rem,7vw,3rem);line-height:1.05;letter-spacing:-.04em;color:var(--navy);margin:12px 0 14px}
+.lead{color:var(--muted);font-size:1.02rem}
+.portrait{width:100%;border-radius:28px;box-shadow:var(--soft);display:block}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:14px;padding:13px 18px;background:var(--aqua);color:#fff;font-weight:900}
+section{padding:58px 0;scroll-margin-top:130px}
+.band{background:#f7fbfc}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{border:1px solid var(--line);border-radius:20px;padding:22px;background:#fff}
+.card p{color:var(--muted);font-size:.9rem}
+.booking{max-width:790px;margin:auto;border:1px solid var(--line);border-radius:28px;box-shadow:var(--soft);overflow:hidden;background:#fff}
+.booking-head{padding:24px;border-bottom:1px solid var(--line)}
+.booking-body{padding:20px}
+.step{padding:22px 0;border-bottom:1px solid var(--line);scroll-margin-top:140px}
+.step:last-child{border-bottom:0}
+.stepnum{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:10px;background:var(--navy);color:#fff;font-weight:900;margin-bottom:10px}
+.help{color:var(--muted);font-size:.9rem}
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice-input{position:absolute;opacity:0}
+.choice-label{display:block;border:1px solid var(--line);border-radius:16px;padding:15px;background:#fff;color:var(--navy);font-weight:850;min-height:70px}
+.choice-label small{display:block;color:var(--muted);font-weight:600;margin-top:3px}
+.choice-input:checked + .choice-label{border:2px solid var(--aqua);padding:14px;background:var(--ice);box-shadow:0 0 0 3px rgba(32,183,178,.08)}
+textarea,input[type=text],input[type=email],input[type=tel]{width:100%;border:1px solid #ccdbe1;border-radius:13px;padding:13px;font:inherit;margin-top:7px}
+textarea{min-height:110px;resize:vertical}
+.fieldlabel{display:block;font-weight:800;color:var(--navy);font-size:.82rem;margin-top:12px}
+.stepnav{display:flex;justify-content:flex-end;margin-top:15px}
+.stepnav a{padding:11px 15px;border-radius:12px;background:var(--navy);color:#fff;font-weight:850;font-size:.86rem}
+.calendar-group{border:1px solid var(--line);border-radius:17px;overflow:hidden;margin:10px 0}
+.datehead{background:#f7fbfc;border-bottom:1px solid var(--line);padding:11px 13px;font-weight:900;color:var(--navy)}
+.slots{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;padding:11px}
+.slotlabel{display:block;border:1px solid var(--line);border-radius:13px;padding:12px;font-weight:850;color:var(--navy)}
+.slotlabel small{display:block;color:var(--muted);font-weight:600;margin-top:3px}
+.choice-input:checked + .slotlabel{border:2px solid var(--aqua);padding:11px;background:var(--ice)}
+.note{border:1px solid var(--line);background:#f7fbfc;border-radius:14px;padding:13px;color:var(--muted);font-size:.82rem;margin-top:12px}
+.packgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.packlabel{display:block;border:1px solid var(--line);border-radius:16px;padding:15px;min-height:135px}
+.packlabel b{display:block;color:var(--navy);font-size:1rem}
+.packlabel strong{display:block;color:var(--navy);font-size:1.35rem;margin:10px 0 2px}
+.packlabel span{color:var(--muted);font-size:.78rem}
+.choice-input:checked + .packlabel{border:2px solid var(--aqua);padding:14px;background:var(--ice)}
+.badge{display:inline-block;background:var(--navy);color:#fff;border-radius:999px;padding:4px 7px;font-size:.64rem;font-weight:900;margin-bottom:7px}
+.consent{display:flex;gap:9px;align-items:flex-start;margin-top:14px;color:var(--muted);font-size:.82rem}
+.consent input{width:18px;height:18px;flex:0 0 18px}
+.finalbox{background:linear-gradient(135deg,var(--navy),#0d4563);color:#fff;border-radius:22px;padding:22px;margin-top:18px}
+.finalbox h3{color:#fff} .finalbox p{color:#c6dce5}
+.footer{padding:32px 14px 100px;border-top:1px solid var(--line);color:var(--muted);font-size:.8rem;text-align:center}
+.mobilecta{position:fixed;left:14px;right:14px;bottom:12px;z-index:25;background:var(--aqua);color:#fff;padding:14px;border-radius:14px;text-align:center;font-weight:900;box-shadow:0 15px 38px rgba(8,38,61,.24)}
+@media(max-width:700px){.hero-grid{grid-template-columns:1fr}.portrait{max-width:330px;margin:auto}.cards,.choice-grid,.packgrid,.slots{grid-template-columns:1fr}}
+
+.calendar-intro{border:1px solid var(--line);background:var(--ice);border-radius:16px;padding:14px 15px;margin-bottom:14px;color:var(--ink);font-size:.88rem}
+.calendar-intro strong{color:var(--navy)}
+.calendar-date{border:1px solid var(--line);border-radius:17px;overflow:hidden;margin:11px 0;background:#fff}
+.calendar-date .datehead{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.daytag{font-size:.72rem;color:var(--aqua2);font-weight:900;white-space:nowrap}
+.slotmeta{display:block;color:var(--muted);font-size:.76rem;font-weight:650;margin-top:4px}
+.slotlabel{cursor:pointer}
+.slotlabel .availability{display:inline-block;margin-top:7px;font-size:.7rem;color:var(--aqua2);font-weight:900}
+.calendar-empty{border:1px dashed #bfd2da;border-radius:16px;padding:18px;text-align:center;color:var(--muted);background:#fbfdfe}
+.calendar-note{font-size:.78rem;color:var(--muted);margin-top:12px}
+
+</style>
+</head>
+<body>
+<div class="topbar">Cours de natation • Évry et alentours</div>
+<header>
+ <div class="navtop"><span class="brandmark"></span><span class="brand">Antoine Natation</span></div>
+ <nav class="tabs"><a href="#accueil">Accueil</a><a href="#cours">Cours</a><a href="#apropos">À propos</a><a href="#tarifs">Tarifs</a><a href="#faq">Questions fréquentes</a><a href="#reserver">Réserver</a></nav>
+</header>
+
+<main id="accueil">
+<section class="hero"><div class="shell hero-grid">
+ <div><span class="eyebrow">Coach de natation à Évry et alentours</span><h1>Progressez dans l’eau, avec confiance.</h1><p class="lead">Apprentissage, aquaphobie, perfectionnement, examen ou défi sportif : chaque séance est adaptée à votre niveau et à votre objectif.</p><a class="btn" href="#reserver">Réserver un cours</a></div>
+ <img class="portrait" src="data:image/webp;base64,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" alt="Antoine, coach de natation">
+</div></section>
+
+<section id="cours"><div class="shell"><span class="eyebrow">Cours & objectifs</span><h2>Un accompagnement adapté à votre besoin.</h2><div class="cards">
+ <div class="card"><h3>Apprendre à nager</h3><p>Débutants, autonomie et sécurité dans l’eau.</p></div>
+ <div class="card"><h3>Aquaphobie</h3><p>Reprendre confiance progressivement, sans vous brusquer.</p></div>
+ <div class="card"><h3>Perfectionnement</h3><p>Technique, respiration, efficacité et endurance.</p></div>
+ <div class="card"><h3>Examens</h3><p>Préparation ciblée aux exigences de votre épreuve.</p></div>
+ <div class="card"><h3>AquaRox / Ironman</h3><p>Préparation spécifique à votre défi sportif.</p></div>
+ <div class="card"><h3>Enfants</h3><p>À partir de la grande section de maternelle.</p></div>
+</div></div></section>
+
+<section class="band" id="apropos"><div class="shell"><span class="eyebrow">À propos</span><h2>Technique + pédagogie.</h2><p class="lead">Maître-nageur diplômé, ancien sportif de haut niveau et plus de 5 ans d’expérience pédagogique. L’objectif : transformer ces bagages en consignes simples et adaptées.</p></div></section>
+<section id="tarifs"><div class="shell"><span class="eyebrow">Tarifs</span><h2>À partir de 40 € la séance adulte.</h2><p class="lead">Pour les enfants, le tarif est calculé automatiquement au moment de la réservation selon l’âge, la durée de la séance et la formule choisie. Vous voyez toujours le prix avant de confirmer.</p></div></section>
+<section class="band" id="faq"><div class="shell"><span class="eyebrow">Questions fréquentes</span><h2>Avant le premier cours.</h2><div class="cards">
+ <div class="card"><h3>Lieu</h3><p>Près d’Évry. L’adresse exacte est communiquée uniquement par WhatsApp après confirmation de la réservation.</p></div>
+ <div class="card"><h3>Annulation</h3><p>48 h avant minimum, sinon séance due à 100 %.</p></div>
+ <div class="card"><h3>Paiement</h3><p>Premier créneau en ligne, puis virement ou espèces.</p></div>
+</div></div></section>
+
+<section id="reserver"><div class="shell">
+<div class="booking">
+ <div class="booking-head"><span class="eyebrow">Réservation en ligne</span><h2>Votre cours de natation</h2><p class="help">Choisissez votre profil et votre accompagnement : seuls les créneaux compatibles seront proposés.</p></div>
+ <form class="booking-body">
+
+  <div class="step" id="etape1"><span class="stepnum">1</span><h3>Pour qui souhaitez-vous réserver ?</h3>
+   <div class="choice-grid">
+    <div><input class="choice-input" type="radio" name="person" id="adult"><label class="choice-label" for="adult">Pour moi<small>Adulte • 1 h</small></label></div>
+    <div><input class="choice-input" type="radio" name="person" id="childu8"><label class="choice-label" for="childu8">Enfant de moins de 8 ans<small>Grande section et + • 30 min</small></label></div>
+    <div><input class="choice-input" type="radio" name="person" id="child8"><label class="choice-label" for="child8">Enfant de 8 ans et +<small>1 h</small></label></div>
+   </div><div class="stepnav"><a href="#etape2">Continuer →</a></div>
+  </div>
+
+  <div class="step" id="etape2"><span class="stepnum">2</span><h3>Quel est votre objectif ?</h3><div class="choice-grid"><div><input class="choice-input" type="radio" name="goal" id="g0"><label class="choice-label" for="g0">Apprendre à nager</label></div><div><input class="choice-input" type="radio" name="goal" id="g1"><label class="choice-label" for="g1">Aquaphobie / confiance</label></div><div><input class="choice-input" type="radio" name="goal" id="g2"><label class="choice-label" for="g2">Perfectionner ma technique</label></div><div><input class="choice-input" type="radio" name="goal" id="g3"><label class="choice-label" for="g3">Préparer un examen</label></div><div><input class="choice-input" type="radio" name="goal" id="g4"><label class="choice-label" for="g4">Préparer un défi sportif</label></div><div><input class="choice-input" type="radio" name="goal" id="g5"><label class="choice-label" for="g5">Autre</label></div></div><div class="stepnav"><a href="#etape3">Continuer →</a></div></div>
+
+  <div class="step" id="etape3"><span class="stepnum">3</span><h3>Pourquoi souhaitez-vous prendre ce cours ?</h3><textarea placeholder="Expliquez votre situation, votre objectif ou votre échéance..."></textarea><div class="stepnav"><a href="#etape4">Continuer →</a></div></div>
+
+  <div class="step" id="etape4"><span class="stepnum">4</span><h3>Quel accompagnement souhaitez-vous ?</h3>
+   <div class="choice-grid">
+    <div><input class="choice-input" type="radio" name="format" id="prog"><label class="choice-label" for="prog">Petit comité<small>3 nageurs maximum • suivi personnalisé • 40 € / h adulte</small></label></div>
+    <div><input class="choice-input" type="radio" name="format" id="indiv"><label class="choice-label" for="indiv">100 % individuel<small>Coach entièrement dédié • 55 € / h</small></label></div>
+   </div><div class="note">Pour les enfants, la durée et le tarif sont adaptés automatiquement selon l’âge.</div><div class="stepnav"><a href="#etape5">Continuer →</a></div>
+  </div>
+
+
+  <div class="step" id="etape5"><span class="stepnum">5</span><h3>Choisissez votre premier créneau</h3>
+   <div class="calendar-intro"><strong>Calendrier adapté à votre réservation.</strong><br>Les dates proposées changent automatiquement selon l’âge et le type d’accompagnement sélectionnés.</div>
+   <div id="calendarDynamic"><div class="calendar-empty">Choisissez d’abord le nageur à l’étape 1 pour afficher les créneaux disponibles.</div></div>
+   <div class="calendar-note">Le dimanche, les horaires s’ouvrent automatiquement au fur et à mesure du remplissage : 10h30 en priorité, puis 11h30, puis 9h30. Pour les enfants de moins de 8 ans, le créneau dédié de 9h00 dure 30 minutes.</div>
+   <div class="stepnav"><a href="#etape6">Continuer →</a></div>
+  </div>
+
+  <div class="step" id="etape6"><span class="stepnum">6</span><h3>Choisissez votre rythme</h3>
+   <div class="packgrid">
+    <div><input class="choice-input" type="radio" name="pack" id="p1"><label class="packlabel" for="p1"><b>Séance</b><strong>40 €</strong><span>Adulte Progression à l’unité</span></label></div>
+    <div><input class="choice-input" type="radio" name="pack" id="p5"><label class="packlabel" for="p5"><span class="badge">Le plus choisi</span><b>Progression</b><strong>190 €</strong><span>5 séances • 38 € / séance</span></label></div>
+    <div><input class="choice-input" type="radio" name="pack" id="p10"><label class="packlabel" for="p10"><b>Objectif</b><strong>360 €</strong><span>10 séances • 36 € / séance</span></label></div>
+   </div><div class="note">Le vrai site calculera automatiquement les packs selon le profil et la formule.</div><div class="stepnav"><a href="#etape7">Continuer →</a></div>
+  </div>
+
+  <div class="step" id="etape7"><span class="stepnum">7</span><h3>Vos coordonnées</h3>
+   <label class="fieldlabel">Prénom et nom</label><input type="text" placeholder="Votre nom">
+   <label class="fieldlabel">Adresse e-mail</label><input type="email" placeholder="vous@exemple.fr">
+   <label class="fieldlabel">Téléphone / WhatsApp</label><input type="tel" placeholder="06 00 00 00 00">
+   <label class="consent"><input type="checkbox"><span>J’ai compris qu’une annulation doit intervenir au moins 48 h avant. Passé ce délai, la séance est due à 100 %.</span></label>
+   <div class="stepnav"><a href="#etape8">Continuer →</a></div>
+  </div>
+
+  <div class="step" id="etape8"><span class="stepnum">8</span><h3>Confirmation</h3>
+   <div class="finalbox"><h3>Votre réservation sera confirmée après paiement.</h3><p>Vous recevrez ensuite la confirmation et <strong>l’adresse exacte uniquement par WhatsApp</strong> au numéro renseigné lors de la réservation. L’adresse ne sera pas affichée publiquement sur le site.</p></div>
+  </div>
+
+ </form>
+</div></div></section>
+</main>
+
+<div class="footer">Antoine Natation — Évry et alentours</div>
+<a class="mobilecta" href="#reserver">Réserver un cours</a>
+
+<script>
+(function(){
+  const calendar = document.getElementById('calendarDynamic');
+  if(!calendar) return;
+
+  const API_URL = 'https://script.google.com/macros/s/AKfycbwPqkZ1EWcnezBHi--r-DXxLvK6CgZeh-XJBMr4vO5_0nJtD7GNPaB3byGmV0iTd4js/exec';
+  let requestNumber = 0;
+
+  function selected(name){
+    const el = document.querySelector('input[name="'+name+'"]:checked');
+    return el ? el.id : null;
+  }
+
+  function profileForApi(person){
+    if(person === 'adult') return 'adult';
+    if(person === 'childu8') return 'childu8';
+    if(person === 'child8') return 'child8';
+    return '';
+  }
+
+  function modeForApi(format){
+    return format === 'indiv' ? 'individual' : 'small';
+  }
+
+  function esc(value){
+    return String(value == null ? '' : value)
+      .replace(/&/g,'&amp;')
+      .replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;')
+      .replace(/'/g,'&#039;');
+  }
+
+  function frDate(dateISO){
+    const d = new Date(dateISO+'T12:00:00');
+    const days = ['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];
+    const months = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+    const day = days[d.getDay()];
+    return day.charAt(0).toUpperCase()+day.slice(1)+' '+d.getDate()+' '+months[d.getMonth()];
+  }
+
+  function hourLabel(h){
+    return String(h || '').replace(':','h');
+  }
+
+  function slotDetail(slot, person, format){
+    if(slot.type === 'vendredi') return 'Séance courte • adulte uniquement';
+    if(slot.type === 'dimanche-enfant') return 'Créneau dédié enfant • 30 min';
+
+    if(format === 'indiv'){
+      return 'Créneau réservé exclusivement pour vous';
+    }
+
+    const remaining = Number(slot.placesRestantes);
+    if(Number.isFinite(remaining)){
+      if(remaining === 1) return 'Petit comité • dernière place';
+      if(remaining === 2) return 'Petit comité • 2 places restantes';
+      if(remaining >= 3) return 'Petit comité • 3 places maximum';
+    }
+    return 'Petit comité • suivi personnalisé';
+  }
+
+  function renderSlots(slots, person, format){
+    if(!Array.isArray(slots) || !slots.length){
+      calendar.innerHTML = '<div class="calendar-empty">Aucun créneau disponible pour ce choix actuellement.</div>';
+      return;
+    }
+
+    const grouped = {};
+    slots.forEach(function(s){
+      if(!s || !s.date || !s.heure) return;
+      if(!grouped[s.date]) grouped[s.date] = [];
+      grouped[s.date].push(s);
+    });
+
+    const dates = Object.keys(grouped).sort();
+    if(!dates.length){
+      calendar.innerHTML = '<div class="calendar-empty">Aucun créneau disponible pour ce choix actuellement.</div>';
+      return;
+    }
+
+    let html = '';
+    dates.forEach(function(dateISO){
+      const list = grouped[dateISO].sort(function(a,b){
+        return String(a.heure).localeCompare(String(b.heure));
+      });
+
+      const isSunday = new Date(dateISO+'T12:00:00').getDay() === 0;
+      html += '<div class="calendar-date">';
+      html += '<div class="datehead"><span>'+esc(frDate(dateISO))+'</span>' +
+              (isSunday ? '<span class="daytag">DIMANCHE OUVERT</span>' : '') +
+              '</div>';
+      html += '<div class="slots">';
+
+      list.forEach(function(s){
+        const safeId = 'slot_' + String(s.id || (dateISO+'_'+s.heure)).replace(/[^a-zA-Z0-9_-]/g,'');
+        const duration = Number(s.dureeMinutes) === 30 ? '30 min' : '1 h';
+        const value = frDate(dateISO) + ' à ' + hourLabel(s.heure);
+
+        html += '<div>';
+        html += '<input class="choice-input" type="radio" name="slot" id="'+esc(safeId)+'" value="'+esc(value)+'">';
+        html += '<label class="slotlabel" for="'+esc(safeId)+'">'+
+                esc(hourLabel(s.heure))+
+                '<small>'+esc(duration)+'</small>'+
+                '<span class="slotmeta">'+esc(slotDetail(s,person,format))+'</span>'+
+                '<span class="availability">Disponible</span>'+
+                '</label>';
+        html += '</div>';
+      });
+
+      html += '</div></div>';
+    });
+
+    calendar.innerHTML = html;
+  }
+
+  function loadCalendar(){
+    const person = selected('person');
+    const format = selected('format');
+
+    if(!person){
+      calendar.innerHTML = '<div class="calendar-empty">Choisissez d’abord <strong>Adulte</strong> ou <strong>Enfant</strong> à l’étape 1.</div>';
+      return;
+    }
+
+    if(!format){
+      calendar.innerHTML = '<div class="calendar-empty">Choisissez d’abord votre type d’accompagnement à l’étape 4.</div>';
+      return;
+    }
+
+    const profile = profileForApi(person);
+    const mode = modeForApi(format);
+    if(!profile) return;
+
+    calendar.innerHTML = '<div class="calendar-empty">Chargement des disponibilités réelles…</div>';
+
+    requestNumber += 1;
+    const thisRequest = requestNumber;
+    const callbackName = '__antoineSlots_' + Date.now() + '_' + thisRequest;
+
+    const cleanup = function(script){
+      try { delete window[callbackName]; } catch(e) { window[callbackName] = undefined; }
+      if(script && script.parentNode) script.parentNode.removeChild(script);
+    };
+
+    const script = document.createElement('script');
+    const timeout = setTimeout(function(){
+      cleanup(script);
+      if(thisRequest === requestNumber){
+        calendar.innerHTML = '<div class="calendar-empty">Impossible de charger les disponibilités pour le moment. Réessayez dans quelques instants.</div>';
+      }
+    }, 12000);
+
+    window[callbackName] = function(data){
+      clearTimeout(timeout);
+      cleanup(script);
+
+      if(thisRequest !== requestNumber) return;
+
+      if(!data || data.ok !== true){
+        calendar.innerHTML = '<div class="calendar-empty">Le calendrier est momentanément indisponible.</div>';
+        return;
+      }
+
+      renderSlots(data.slots, person, format);
+    };
+
+    script.onerror = function(){
+      clearTimeout(timeout);
+      cleanup(script);
+      if(thisRequest === requestNumber){
+        calendar.innerHTML = '<div class="calendar-empty">Impossible de joindre le calendrier pour le moment.</div>';
+      }
+    };
+
+    script.src = API_URL +
+      '?profile=' + encodeURIComponent(profile) +
+      '&mode=' + encodeURIComponent(mode) +
+      '&days=75' +
+      '&callback=' + encodeURIComponent(callbackName) +
+      '&t=' + Date.now();
+
+    document.head.appendChild(script);
+  }
+
+  document.querySelectorAll('input[name="person"], input[name="format"]').forEach(function(el){
+    el.addEventListener('change', loadCalendar);
+  });
+
+  loadCalendar();
+})();
+</script>
+
+</body></html>
