@@ -357,7 +357,7 @@ body.booking-mode .tabs{display:none}
 (function(){
   const calendar=document.getElementById('calendarDynamic'); if(!calendar)return;
   const API_URL='https://script.google.com/macros/s/AKfycbwPqkZ1EWcnezBHi--r-DXxLvK6CgZeh-XJBMr4vO5_0nJtD7GNPaB3byGmV0iTd4js/exec';
-  function isTrustedBookingOrigin(origin){try{const u=new URL(origin);return u.protocol==='https:'&&(u.hostname==='script.google.com'||u.hostname==='script.googleusercontent.com'||u.hostname.endsWith('.script.googleusercontent.com'));}catch(e){return false;}}
+  function isTrustedBookingOrigin(origin){try{const u=new URL(origin),h=u.hostname;return u.protocol==='https:'&&(h==='script.google.com'||h==='script.googleusercontent.com'||h.endsWith('.script.googleusercontent.com')||h.endsWith('-script.googleusercontent.com'));}catch(e){return false;}}
   let requestNumber=0,pendingNonce='',calendarWeeks=[],currentWeek=0,chosenSlot=null,currentProfile='',currentFormat='',activeWizardStep=1,loyaltyApplied=false,serverPricing=null;
   function selected(name){const el=document.querySelector('input[name="'+name+'"]:checked');return el?el.id:null;}
   function profileForApi(p){return p==='adult'?'adult':p==='childu8'?'childu8':p==='child8'?'child8':'';}
