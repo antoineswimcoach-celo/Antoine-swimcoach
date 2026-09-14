@@ -305,3 +305,24 @@ section {
 
 .booking-body {
   padding: 24px;
+}
+
+/* Contraste des messages dans le panneau de confirmation sombre. */
+#bookingStatus.ok {
+  color: #14532d;
+  background: #edf9f2;
+  border: 1px solid #91bfa3;
+}
+#bookingStatus.err {
+  color: #7f1d1d;
+  background: #fff4f2;
+  border: 1px solid #d9a49a;
+}
+#paymentActions {
+  color: #193b50;
+  background: #edf9f2;
+}
+#paymentActions small { color: #365766; }
+#promoFeedback.ok { color: #14532d; background: #e6f6ef; }
+#promoFeedback.err { color: #7f1d1d; background: #fff4f2; }
+
