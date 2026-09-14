@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://antoineswimcoach-celo.github.io/Antoine-swimcoach/sitemap.xml
