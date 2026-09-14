@@ -1,0 +1,307 @@
+/* Antoine Natation — identité aquatique
+   Habillage du site existant, sans modification des scripts. */
+
+:root {
+  --navy: #092c43;
+  --ink: #193b50;
+  --muted: #496879;
+  --aqua: #087ba6;
+  --aqua2: #08787c;
+  --ice: #eaf7fc;
+  --line: #cfe3ed;
+  --soft: 0 14px 40px rgba(9, 44, 67, .08);
+}
+
+body {
+  background: #f6fbfe;
+  color: var(--ink);
+}
+
+html {
+  scroll-padding-top: 150px;
+}
+
+.shell {
+  width: min(1100px, calc(100% - 32px));
+}
+
+.topbar {
+  background: #092c43;
+  color: #d9edf6;
+}
+
+body > header {
+  top: 10px;
+  width: min(1120px, calc(100% - 24px));
+  margin: 12px auto;
+  border: 1px solid #254b62;
+  border-radius: 28px;
+  background: rgba(9, 44, 67, .97);
+  box-shadow: 0 12px 30px rgba(9, 44, 67, .15);
+  backdrop-filter: blur(14px);
+}
+
+.navtop {
+  height: 66px;
+}
+
+.brand {
+  color: #fff;
+  letter-spacing: -.02em;
+}
+
+.brandmark {
+  background: #fff;
+  border-radius: 50%;
+  padding: 3px;
+}
+
+.tabs {
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  gap: 5px;
+}
+
+.tabs a {
+  background: transparent;
+  border-color: transparent;
+  color: #e6f4fa;
+}
+
+.tabs a:hover {
+  background: #20465d;
+}
+
+.tabs a[href="#reserver"] {
+  background: #83ddf5;
+  color: #092c43;
+}
+
+/* Accueil : photo authentique et ambiance marine. */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 76px 0 84px;
+  background:
+    radial-gradient(ellipse at 85% 30%, #1a6077 0%, transparent 58%),
+    linear-gradient(125deg, #071f31, #0d3e56);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  left: -20%;
+  bottom: -270px;
+  width: 140%;
+  height: 340px;
+  border-radius: 50%;
+  background: rgba(118, 210, 238, .07);
+  box-shadow:
+    0 -25px 0 rgba(118, 210, 238, .04),
+    0 -54px 0 rgba(118, 210, 238, .025);
+  animation: antoine-water 14s ease-in-out infinite alternate;
+}
+
+.hero-grid {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+  gap: 48px;
+}
+
+h1, h2, h3, .brand {
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 850;
+  line-height: 1.08;
+  letter-spacing: -.045em;
+}
+
+.title-accent {
+  color: #83ddf5;
+}
+
+.hero .lead {
+  max-width: 54ch;
+  color: #dfedf5;
+  line-height: 1.75;
+}
+
+.hero .eyebrow {
+  background: rgba(255, 255, 255, .07);
+  color: #cceef9;
+  border-color: rgba(255, 255, 255, .2);
+}
+
+.hero-reassurance {
+  color: #c8e3ef;
+  line-height: 1.7;
+}
+
+.portrait {
+  width: 100%;
+  height: auto;
+  border: 5px solid rgba(255, 255, 255, .2);
+  border-radius: 30px;
+  box-shadow: 0 24px 55px rgba(0, 0, 0, .22);
+}
+
+/* Boutons et titres. */
+
+.btn, .wizard-btn, .promo-btn, .bookbtn {
+  border-radius: 999px;
+}
+
+.btn, .wizard-btn.primary, .bookbtn {
+  background: linear-gradient(120deg, #087ba6, #08787c);
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(8, 123, 166, .16);
+}
+
+.hero .btn:not(.secondary-cta) {
+  background: #83ddf5;
+  color: #092c43;
+}
+
+.secondary-cta {
+  background: #fff;
+  color: var(--navy);
+  border: 1px solid var(--line);
+  box-shadow: none;
+}
+
+.hero .secondary-cta {
+  background: transparent;
+  color: #fff;
+  border-color: #89abbc;
+}
+
+h2 {
+  font-weight: 800;
+  line-height: 1.14;
+}
+
+.eyebrow {
+  padding: 8px 13px;
+  border: 1px solid var(--line);
+  background: #edf8fd;
+  color: #086b89;
+}
+
+/* Prestations et méthode : surfaces claires. */
+
+section {
+  padding: 68px 0;
+}
+
+.band {
+  background: linear-gradient(145deg, #edf8fd, #f9fdff);
+  border-block: 1px solid #deedf4;
+}
+
+.cards {
+  gap: 18px;
+}
+
+.card, .about-copy, .review-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--soft);
+}
+
+.card {
+  padding: 26px;
+}
+
+.card h3 {
+  line-height: 1.3;
+}
+
+.card p {
+  line-height: 1.7;
+}
+
+.service-link {
+  color: #086d90;
+}
+
+.about-grid {
+  grid-template-columns: minmax(0, 1.45fr) minmax(260px, .65fr);
+  gap: 22px;
+}
+
+.about-copy {
+  padding: 30px;
+}
+
+.method-list {
+  gap: 16px;
+}
+
+.method-item {
+  border-top-color: #72cbe5;
+}
+
+.method-item p {
+  line-height: 1.6;
+}
+
+.about-proof, .finalbox {
+  background: linear-gradient(140deg, #092c43, #125775);
+}
+
+.review-strip {
+  gap: 16px;
+}
+
+.review-card {
+  padding: 24px;
+}
+
+.review-card blockquote {
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.review-card::before {
+  color: #c8e7f3;
+}
+
+.reviews-cta {
+  background: #e7f5fc;
+  border-color: var(--line);
+  border-radius: 20px;
+  padding: 18px;
+}
+
+#tarifs {
+  background: #fff;
+}
+
+/* Réservation : mêmes champs et mêmes états. */
+
+#reserver {
+  background: linear-gradient(180deg, #edf8fd, #f9fdff);
+}
+
+.booking {
+  max-width: 850px;
+  border-radius: 30px;
+  background: #fff;
+  box-shadow: 0 22px 60px rgba(9, 44, 67, .1);
+}
+
+.booking-head {
+  padding: 30px;
+  background: linear-gradient(135deg, #fff, #e9f6fd);
+}
+
+.booking-body {
+  padding: 24px;
