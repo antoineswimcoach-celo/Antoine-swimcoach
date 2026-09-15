@@ -326,3 +326,37 @@ section {
 #promoFeedback.ok { color: #14532d; background: #e6f6ef; }
 #promoFeedback.err { color: #7f1d1d; background: #fff4f2; }
 
+
+
+/* Audit technique du 15 septembre : reflow, contrastes et clavier. */
+.hero-grid > *, .about-grid > *, .cards > *, .choice-grid > *, .packgrid > * { min-width:0; }
+#reserver input[type=number] { width:100%; border:1px solid #ccdbe1; border-radius:13px; padding:13px; font:inherit; margin-top:7px; }
+#reserver input:not([type=checkbox]):not([type=radio]), #reserver textarea { font-size:16px; }
+#reserver textarea:focus-visible { outline:3px solid #147f91; outline-offset:2px; }
+#finalSummary { overflow-wrap:anywhere; line-height:1.65; }
+.calendar-retry { margin-top:12px; }
+#bookingStatus, #paymentActions { overflow-wrap:anywhere; }
+.wizard-progress { margin-left:-24px; margin-right:-24px; padding-left:24px; padding-right:24px; }
+.wizard-summary { margin-left:-24px; margin-right:-24px; padding-left:24px; padding-right:24px; }
+#reserver button:disabled { cursor:not-allowed; }
+#turnstileWidget { width:100%; max-width:300px; }
+.turnstile-wrap { overflow:visible; }
+@media(max-width:700px){
+ .hero-grid,.about-grid { grid-template-columns:minmax(0,1fr); gap:24px; }
+ .hero { padding:38px 0 48px; }
+ .hero .portrait { max-width:330px; }
+ .about-copy,.booking-head { padding:20px; }
+ .hero-actions .btn { flex:1 1 180px; }
+ .hero h1 { font-size:clamp(2.15rem,9vw,3.6rem); }
+ .hero .eyebrow { font-size:.7rem; }
+ .goal-grid { grid-template-columns:1fr; }
+ .review-card { overflow-wrap:anywhere; }
+ .promo-row { grid-template-columns:minmax(0,1fr); }
+ .promo-btn { min-height:44px; }
+ .booking-body { padding:16px; }
+ .wizard-progress { margin-inline:-16px; padding-inline:16px; }
+ .wizard-summary { margin-inline:-16px; padding-inline:16px; }
+ .mobilecta { bottom:calc(12px + env(safe-area-inset-bottom,0px)); }
+}
+@media(min-width:701px){ .mobilecta { display:none; } }
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
