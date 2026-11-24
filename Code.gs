@@ -1,8 +1,8 @@
 const CALENDAR_ID = '3aa320aacf52fc727abcee7e7745a19abceb81a662519fddf18f8d98c9c6105e@group.calendar.google.com';
 const TIME_ZONE = 'Europe/Paris';
 const BOOKING_PREFIX = 'RÉSERVATION';
-const DEFAULT_DAYS = 120;
-const MAX_DAYS = 120;
+const DEFAULT_DAYS = 180;
+const MAX_DAYS = 180;
 
 // -----------------------------------------------------------------------------
 // MODE TRANSITION : WhatsApp personnel, envoi final manuel
@@ -968,3 +968,4 @@ function bookingResponse_(payload) {
     '</script></body></html>';
   return HtmlService.createHtmlOutput(html).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
 }
+

@@ -75,7 +75,7 @@
       calendarState='ready';updatePacks();renderSlots(data.slots,p,f);if(previousProfile===p){chosenSlots=previousSlots.filter(old=>data.slots.some(s=>s.startISO===old.dataset.start&&s.endISO===old.dataset.end)).slice(0,requiredSlotCount());renderCurrentWeek();updateWizardSummary();}
     };
     script.onerror=()=>{clearTimeout(timer);fail('Impossible de joindre le calendrier.');};
-    script.src=API_URL+'?profile='+encodeURIComponent(profileForApi(p))+'&mode='+encodeURIComponent(modeForApi(f))+'&days=120&callback='+encodeURIComponent(cb)+'&t='+Date.now();document.head.appendChild(script);
+    script.src=API_URL+'?profile='+encodeURIComponent(profileForApi(p))+'&mode='+encodeURIComponent(modeForApi(f))+'&days=180&callback='+encodeURIComponent(cb)+'&t='+Date.now();document.head.appendChild(script);
   }
   function updateChildFields(){const p=selected('person'),fields=document.getElementById('childFields');if(fields)fields.classList.toggle('show',!!p&&p!=='adult');const a=document.querySelector('label[for="prog"]'),b=document.querySelector('label[for="indiv"]');if(!a||!b)return;const badge='<span class="format-badge">Recommandé pour les adultes débutants</span>';if(p&&p!=='adult'){a.innerHTML='Petit comité bienveillant<small>3 nageurs maximum • chacun progresse à son rythme • tarif enfant calculé automatiquement</small>';b.innerHTML='100 % individuel<small>Coach entièrement dédié • accompagnement sur mesure • tarif enfant calculé automatiquement</small>';}else{a.innerHTML='Petit comité bienveillant'+badge+'<small>3 nageurs maximum • chacun progresse à son rythme • 40 € / h adulte</small>';b.innerHTML='100 % individuel<small>Coach entièrement dédié • accompagnement sur mesure • 55 € / h</small>';}}
   function euro(n){return Number.isInteger(n)?n+' €':n.toFixed(2).replace('.',',')+' €';}
@@ -139,4 +139,5 @@
   if(/^#etape\d+$/.test(location.hash)&&history.replaceState)history.replaceState(null,'',location.pathname+location.search+'#reserver');
   updateChildFields();updatePacks();loadCalendar();setWizardStep(1,false);
 })();
+
 
